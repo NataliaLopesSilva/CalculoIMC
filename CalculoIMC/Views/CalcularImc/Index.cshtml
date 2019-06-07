@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header" style="font-size: 22px; text-align: center; font-weight: bold; color:#44914a">
+            Calcule seu IMC
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 style="color: #646464">
+                                IMC é a sigla para Índice de Massa Corpórea, parâmetro
+                                adotado pela Organização Mundial de Saúde para calcular o peso ideal de cada pessoa.
+                                Vamos calcular seu IMC?
+                            </h6>
+                        </div>
+                    </div>
+                    <br>
+
+                    @using (Html.BeginForm("Index", "CalcularImc", FormMethod.Post, new { id = "form" }))
+                    {
+                        if (ViewBag.msgErro != null)
+                        {
+                            <div class="form-row">
+                                <div class="col-md-12">
+
+                                    <div class="alert alert-danger" role="alert">
+                                        Ops! @ViewBag.msgErro
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>* Digite sua altura (em metros):</label>
+                                    <input id="altura" name="altura" class="form-control" type="text"
+                                           placeholder="Ex: 1,70" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>* Digite seu peso (em Kg):</label>
+                                    <input id="peso" name="peso" class="form-control" placeholder="Ex: 70,300"
+                                           type="text" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <button class="btn btn-success" type="submit">Calcular</button>
+                        <a class="btn btn-outline-success" href=".">Limpar</a>
+                    }
+                </div>
+
+                <!-- <div class="linha-vertical"></div> -->
+
+                <div class="col-md-6 linha-vertical">
+                    <div class="row">
+                        <div class="col-md-12" style="text-align:center">
+                            <img src="~/img/balanca.jpg" class="rounded-circle" style="width:100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .linha-vertical {
+        border-left: 1px solid;
+        border-color: #8080809a;
+        /* Adiciona borda esquerda na div como ser fosse uma linha.*/
+        box-sizing: border-box;
+    }
+</style>

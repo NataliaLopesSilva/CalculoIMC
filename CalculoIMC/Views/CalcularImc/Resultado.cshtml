@@ -1,0 +1,79 @@
+﻿@model CalculoIMC.Models.Pessoa
+
+@{
+    ViewBag.Title = "Resultado";
+}
+
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header" style="font-size: 22px; text-align: center; font-weight: bold; color:#44914a">
+            Resultado
+        </div>
+        <div class="card-body text-center">
+            <div class="row">
+                <div class="offset-3 col-md-6">
+                    @if (Model.resultado.Equals("abaixo do peso"))
+                    {
+                        <h3 style="color:#d80702">Seu IMC é @String.Format("{0:N2}", Model.imc) </h3>
+                        <br>
+                        <p style="color:#d80702">
+                            <strong>Você pode estar abaixo do peso!</strong> Essa é uma condição em que a pessoa pesa
+                            menos do que é considerado
+                            adequado para aquela altura, idade e sexo. Uma pessoa nestas condições pode estar
+                            com alguma doença que a está emagrecendo ou sua nutrição não está boa o suficiente.
+                            Normalmente estas pessoas podem ter deficiências de nutrientes como vitaminas, sais
+                            minerais, proteínas, gorduras ou sob o risco de estar com anorexia. Para maiores
+                            esclarecimentos você deve procurar ajuda médica...
+                        </p>
+                    }
+                    else if (Model.resultado.Equals("peso normal"))
+                    {
+                        <h3 style="color:#28a745">Seu IMC é @String.Format("{0:N2}", Model.imc) </h3>
+                        <br>
+                        <p style="color:#28a745">
+                            <strong>Seu peso está normal!</strong> Estar dentro da faixa de peso ideal
+                            significa ter um peso considerado adequado para sua altura, idade e sexo, de acordo
+                            com as faixas do IMC. Para manter o peso é importante manter uma dieta balanceada
+                            (não basta alimentos corretos, mas também quantidades corretas) para seu organismo.
+                            Devem ser avaliados peso, idade, composição corporal, presença de doenças e/ou
+                            comorbidades.
+                        </p>
+
+                    }
+                    else if (Model.resultado.Equals("sobrepeso"))
+                    {
+                        <h3 style="color:#d80702">Seu IMC é @String.Format("{0:N2}", Model.imc) </h3>
+                        <br>
+                        <p style="color:#d80702">
+                            <strong>Você pode estar com sobrepeso!</strong> Essa é uma condição em que a pessoa
+                            pesa mais do que é considerado adequado para aquela altura, idade e sexo. O
+                            sedentarismo e os maus hábitos alimentares levam ao aumento dessa parcela de
+                            indivíduos com sobrepeso a cada ano. Essa faixa, se analisada junto com outras
+                            medidas e índices, pode demonstrar um risco maior de doenças como diabetes tipo 2,
+                            dislipidemia (com colesterol HDL baixo e triglicérides altos), ácido úrico
+                            aumentado, hipertensão, entre outras.. Para maiores
+                            esclarecimentos você deve procurar ajuda médica...
+                        </p>
+                    }
+                    else if (Model.resultado.Equals("obesidade"))
+                    {
+                        <h3 style="color:#d80702">Seu IMC é @String.Format("{0:N2}", Model.imc) </h3>
+                        <br>
+                        <p style="color:#d80702">
+                            <strong>Você pode estar com Obesidade!</strong> Existem as obesidades grau 1,
+                            2, e 3, mas somente o cálculo do IMC não é suficiente para diagnosticar obesidade.
+                            Na verdade, para além do IMC, são necessárias as seguintes medidas antropométricas:
+                            peso, estatura, espessura da dobra cutânea (bíceps, tríceps, subescapular e suprailíaca).
+                            Depois, é encontrado o percentual de gordura, que se for maior do que 25% a 30%, já é
+                            considerado um nível de obesidade. O índice de massa corporal tem que estar maior que 30kg/m².
+                            Para maiores esclarecimentos você deve procurar ajuda médica...
+                        </p>
+                    }
+
+                    <a href="~/CalcularImc/Index">Calcular de novo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
